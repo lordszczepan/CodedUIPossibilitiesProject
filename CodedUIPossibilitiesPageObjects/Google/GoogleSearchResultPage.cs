@@ -1,5 +1,6 @@
 ﻿using CodedUIPossibilitiesPageObjects.SharedElements;
 using Microsoft.VisualStudio.TestTools.UITesting;
+using Microsoft.VisualStudio.TestTools.UITesting.HtmlControls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,9 +15,30 @@ namespace CodedUIPossibilitiesPageObjects.Google
         {
         }
 
+        #region Properties
+        public HtmlDiv GoogleSearchResultBar
+        {
+            get
+            {
+                if (this.mGoogleSearchResultBar == null)
+                {
+                    this.mGoogleSearchResultBar = new HtmlDiv(browserWindow);
+                    this.mGoogleSearchResultBar.SearchProperties[HtmlImage.PropertyNames.Id] = "sfcnt";
+                    this.mGoogleSearchResultBar.SearchProperties[HtmlImage.PropertyNames.Class] = "dodTBe";
+                }
+                return this.mGoogleSearchResultBar;
+            }
+        }
+        #endregion
+
+        #region Fields
+        private HtmlDiv mGoogleSearchResultBar;
+        #endregion
+
         public override bool IsLoaded()
         {
-            throw new NotImplementedException();
+            return this.GoogleSearchResultBar.Exists;
         }
+
     }
 }

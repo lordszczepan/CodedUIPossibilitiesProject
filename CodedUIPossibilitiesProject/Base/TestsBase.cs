@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace CodedUIPossibilitiesProject.Base
 {
+    [CodedUITest]
     public abstract class TestsBase
     {
         protected BrowserWindow driver;
@@ -19,15 +20,12 @@ namespace CodedUIPossibilitiesProject.Base
         }
 
         #region Additional test attributes
-
-        // You can use the following additional attributes as you write your tests:
-
         //Use TestInitialize to run code before running each test 
         [TestInitialize()]
         public void MyTestInitialize()
         {
-            driver = BrowserWindow.Launch(new Uri(url));
             // To generate code for this test, select "Generate Code for Coded UI Test" from the shortcut menu and select one of the menu items.
+            driver = BrowserWindow.Launch(new Uri(url));
         }
 
         //Use TestCleanup to run code after each test has run

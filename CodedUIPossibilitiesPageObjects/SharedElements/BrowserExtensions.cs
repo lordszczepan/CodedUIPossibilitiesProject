@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UITesting;
+using Microsoft.VisualStudio.TestTools.UITesting.HtmlControls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,6 +18,11 @@ namespace CodedUIPossibilitiesPageObjects.SharedElements
         public static void SendKeys(this UITestControl control, string text)
         {
             Keyboard.SendKeys(control, text);
+        }
+
+        public static string GetElementText(this HtmlControl control)
+        {
+            return control.InnerText;
         }
     }
 }

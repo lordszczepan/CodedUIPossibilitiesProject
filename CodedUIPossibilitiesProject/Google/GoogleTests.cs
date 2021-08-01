@@ -8,37 +8,31 @@ using System.Drawing;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using System.Windows.Input;
-
-using Keyboard = Microsoft.VisualStudio.TestTools.UITesting.Keyboard;
 using CodedUIPossibilitiesPageObjects.Google;
 using CodedUIPossibilitiesProject.Base;
 
 namespace CodedUIPossibilitiesProject.Google
 {
-    /// <summary>
-    /// Summary description for CodedUITest1
-    /// </summary>
-
-    
-
     [CodedUITest]
     public class GoogleTests : TestsBase
     {
-        private static string test_url = "https://www.google.com";
+        private static string url = "https://www.google.com";
 
-        public GoogleTests() : base(test_url)
+        public GoogleTests() : base(url)
         {
             
         }
 
         [TestMethod]
-        public void ShouldSearchForGooglePhraseAndEnterIt_PageObject()
+        public void ShouldSearchForGooglePhraseAndEnterIt()
         {
             var googleMainPage = new GoogleMainPage(driver);
 
             Assert.IsTrue(googleMainPage.IsLoaded());
 
             var googleSearchResultPage = googleMainPage.SearchGooglePhrase("Star Wars");
+
+            Assert.IsTrue(googleSearchResultPage.IsLoaded());
         }
     }
 }
