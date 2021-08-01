@@ -13,5 +13,10 @@ namespace CodedUIPossibilitiesPageObjects.Google
         public GoogleSearchResultPage(BrowserWindow browserWindow) : base(browserWindow)
         {
         }
+
+        public override bool IsLoaded()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

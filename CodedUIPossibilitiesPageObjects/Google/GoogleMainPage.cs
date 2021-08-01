@@ -15,66 +15,88 @@ namespace CodedUIPossibilitiesPageObjects.Google
         {
         }
         #region Properties
-        public HtmlEdit UISzukajEdit
+        public HtmlImage GoogleLogoImage
         {
             get
             {
-                if ((this.mUISzukajEdit == null))
+                if (this.mGoogleLogoImage == null)
                 {
-                    this.mUISzukajEdit = new HtmlEdit();
-                    #region Search Criteria
-                    this.mUISzukajEdit.SearchProperties[HtmlEdit.PropertyNames.Id] = null;
-                    this.mUISzukajEdit.SearchProperties[HtmlEdit.PropertyNames.Name] = "q";
-                    this.mUISzukajEdit.SearchProperties[HtmlEdit.PropertyNames.LabeledBy] = null;
-                    this.mUISzukajEdit.SearchProperties[HtmlEdit.PropertyNames.Type] = "SINGLELINE";
-                    this.mUISzukajEdit.FilterProperties[HtmlEdit.PropertyNames.Title] = "Szukaj";
-                    this.mUISzukajEdit.FilterProperties[HtmlEdit.PropertyNames.Class] = "gLFyf gsfi";
-                    this.mUISzukajEdit.FilterProperties[HtmlEdit.PropertyNames.ControlDefinition] = "name=\"q\" title=\"Szukaj\" class=\"gLFyf gsf";
-                    this.mUISzukajEdit.FilterProperties[HtmlEdit.PropertyNames.TagInstance] = "6";
-                    this.mUISzukajEdit.WindowTitles.Add("Google - Internet Explorer");
-                    #endregion
+                    this.mGoogleLogoImage = new HtmlImage(browserWindow);
+                    this.mGoogleLogoImage.SearchProperties[HtmlImage.PropertyNames.FriendlyName] = "Google";
+                    this.mGoogleLogoImage.SearchProperties[HtmlImage.PropertyNames.Alt] = "Google";
+                    this.mGoogleLogoImage.SearchProperties[HtmlImage.PropertyNames.TagName] = "IMG";
+                    this.mGoogleLogoImage.SearchProperties[HtmlImage.PropertyNames.Class] = "lnXdpd";
                 }
-                return this.mUISzukajEdit;
+                return this.mGoogleLogoImage;
             }
         }
 
-        public HtmlInputButton UISzukajwGoogleButton
+        public HtmlEdit GoogleSearchArea
         {
             get
             {
-                if ((this.mUISzukajwGoogleButton == null))
+                if ((this.mGoogleSearchArea == null))
                 {
-                    mUISzukajwGoogleButton = new HtmlInputButton();
+                    this.mGoogleSearchArea = new HtmlEdit(browserWindow);
                     #region Search Criteria
-                    this.mUISzukajwGoogleButton.SearchProperties[HtmlButton.PropertyNames.Id] = null;
-                    this.mUISzukajwGoogleButton.SearchProperties[HtmlButton.PropertyNames.Name] = "btnK";
-                    this.mUISzukajwGoogleButton.SearchProperties[HtmlButton.PropertyNames.DisplayText] = "Szukaj w Google";
-                    this.mUISzukajwGoogleButton.SearchProperties[HtmlButton.PropertyNames.Type] = "submit";
-                    this.mUISzukajwGoogleButton.FilterProperties[HtmlButton.PropertyNames.Title] = null;
-                    this.mUISzukajwGoogleButton.FilterProperties[HtmlButton.PropertyNames.Class] = "gNO89b";
-                    this.mUISzukajwGoogleButton.FilterProperties[HtmlButton.PropertyNames.ControlDefinition] = "name=\"btnK\" class=\"gNO89b\" aria-label=\"S";
-                    this.mUISzukajwGoogleButton.FilterProperties[HtmlButton.PropertyNames.TagInstance] = "9";
-                    this.mUISzukajwGoogleButton.WindowTitles.Add("Google - Internet Explorer");
+                    this.mGoogleSearchArea.SearchProperties[HtmlEdit.PropertyNames.Name] = "q";
+                    this.mGoogleSearchArea.SearchProperties[HtmlEdit.PropertyNames.Type] = "SINGLELINE";
+                    this.mGoogleSearchArea.FilterProperties[HtmlEdit.PropertyNames.Title] = "Szukaj";
+                    this.mGoogleSearchArea.FilterProperties[HtmlEdit.PropertyNames.Class] = "gLFyf gsfi";
+                    this.mGoogleSearchArea.FilterProperties[HtmlEdit.PropertyNames.ControlDefinition] = "name=\"q\" title=\"Szukaj\" class=\"gLFyf gsf";
+                    this.mGoogleSearchArea.FilterProperties[HtmlEdit.PropertyNames.TagInstance] = "6";
+                    this.mGoogleSearchArea.WindowTitles.Add("Google - Internet Explorer");
                     #endregion
                 }
-                return this.mUISzukajwGoogleButton;
+                return this.mGoogleSearchArea;
+            }
+        }
+
+        public HtmlInputButton GoogleSearchButton
+        {
+            get
+            {
+                if ((this.mGoogleSearchButton == null))
+                {
+                    mGoogleSearchButton = new HtmlInputButton(browserWindow);
+                    #region Search Criteria
+                    this.mGoogleSearchButton.SearchProperties[HtmlButton.PropertyNames.Name] = "btnK";
+                    this.mGoogleSearchButton.SearchProperties[HtmlButton.PropertyNames.DisplayText] = "Szukaj w Google";
+                    this.mGoogleSearchButton.SearchProperties[HtmlButton.PropertyNames.Type] = "submit";
+                    this.mGoogleSearchButton.FilterProperties[HtmlButton.PropertyNames.Class] = "gNO89b";
+                    this.mGoogleSearchButton.FilterProperties[HtmlButton.PropertyNames.ControlDefinition] = "name=\"btnK\" class=\"gNO89b\" aria-label=\"S";
+                    this.mGoogleSearchButton.FilterProperties[HtmlButton.PropertyNames.TagInstance] = "9";
+                    this.mGoogleSearchButton.WindowTitles.Add("Google - Internet Explorer");
+                    #endregion
+                }
+                return this.mGoogleSearchButton;
             }
         }
         #endregion
 
         #region Fields
-        private HtmlEdit mUISzukajEdit;
+        private HtmlImage mGoogleLogoImage;
 
-        private HtmlInputButton mUISzukajwGoogleButton;
+        private HtmlEdit mGoogleSearchArea;
+
+        private HtmlInputButton mGoogleSearchButton;
         #endregion
 
-        public GoogleSearchResultPage SearchGooglePhraseAndEnter(string phrase)
+
+        #region Methods
+        public override bool IsLoaded()
+        {
+            return this.GoogleLogoImage.Exists;
+        }
+
+        public GoogleSearchResultPage SearchGooglePhrase(string phrase)
         {
 
-            UISzukajEdit.SendKeys(phrase);
-            UISzukajwGoogleButton.Click();
+            this.GoogleSearchArea.SendKeys(phrase);
+            this.GoogleSearchButton.Click();
 
             return new GoogleSearchResultPage(browserWindow);
         }
+        #endregion
     }
 }

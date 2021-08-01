@@ -9,7 +9,7 @@ using Microsoft.VisualStudio.TestTools.UITesting.HtmlControls;
 namespace CodedUIPossibilitiesPageObjects.SharedElements
 {
 
-    public class SharedActionsAndElements
+    public abstract class SharedActionsAndElements
     {
         protected BrowserWindow browserWindow;
 
@@ -17,5 +17,7 @@ namespace CodedUIPossibilitiesPageObjects.SharedElements
         {
             this.browserWindow = BrowserWindow;
         }
+
+        public abstract bool IsLoaded();
     }
 }
