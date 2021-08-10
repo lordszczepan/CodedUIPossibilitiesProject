@@ -296,7 +296,7 @@ namespace CodedUIPossibilitiesPageObjects.Wikipedia
 
         public override bool IsLoaded()
         {
-            return this.mHtmlLabelMainTitle.Exists;
+            return this.mHtmlControlMainTitle.Exists;
         }
 
         public string ReturnHtmlLabelMainTitle()

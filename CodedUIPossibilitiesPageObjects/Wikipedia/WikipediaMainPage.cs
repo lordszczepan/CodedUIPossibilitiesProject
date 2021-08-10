@@ -11,8 +11,11 @@ namespace CodedUIPossibilitiesPageObjects.Wikipedia
 {
     public class WikipediaMainPage : SharedActionsAndElements
     {
+        public WikipediaTopBar TopBar { get; }
+
         public WikipediaMainPage(BrowserWindow BrowserWindow) : base(BrowserWindow)
         {
+            TopBar = new WikipediaTopBar(browserWindow);
         }
 
         #region Properties

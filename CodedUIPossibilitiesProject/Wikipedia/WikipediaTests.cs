@@ -30,7 +30,7 @@ namespace CodedUIPossibilitiesProject.Wikipedia
 
             var wikiArticlePage = wikiMainPage.SearchAndEnterArticle(searchPhrase);
 
-            //Assert.IsTrue(wikiArticlePage.IsLoaded());
+            Assert.IsTrue(wikiArticlePage.IsLoaded());
 
             string message = "";
             try
