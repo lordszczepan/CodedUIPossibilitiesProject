@@ -37,5 +37,18 @@ namespace CodedUIPossibilitiesProject.Base
             driver.Close();
         }
         #endregion
+
+        public TestContext TestContext
+        {
+            get
+            {
+                return testContextInstance;
+            }
+            set
+            {
+                testContextInstance = value;
+            }
+        }
+        private TestContext testContextInstance;
     }
 }
