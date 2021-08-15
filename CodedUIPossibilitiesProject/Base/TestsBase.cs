@@ -26,6 +26,7 @@ namespace CodedUIPossibilitiesProject.Base
         {
             // To generate code for this test, select "Generate Code for Coded UI Test" from the shortcut menu and select one of the menu items.
             driver = BrowserWindow.Launch(new Uri(url));
+            driver.ResizeWindow(480, 800);
         }
 
         //Use TestCleanup to run code after each test has run

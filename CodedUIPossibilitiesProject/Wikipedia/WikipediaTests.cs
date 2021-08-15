@@ -25,14 +25,15 @@ namespace CodedUIPossibilitiesProject.Wikipedia
         [TestMethod()]
         public void ShouldSearchForWikiPhraseAndEnterIt()
         {
-            //string searchPhrase = "Testowanie eksploracyjne";
-            string searchPhrase = TestContext.DataRow["WikiSearchPrases"].ToString();
+            string searchPhrase = "Testowanie eksploracyjne";
+            //string searchPhrase = TestContext.DataRow["WikiSearchPrases"].ToString();
 
             var wikiMainPage = new WikipediaMainPage(driver);
 
             Assert.IsTrue(wikiMainPage.IsLoaded());
 
-            var wikiArticlePage = wikiMainPage.SearchAndEnterArticle(TestContext.DataRow["WikiSearchPrases"].ToString());
+            var wikiArticlePage = wikiMainPage.SearchAndEnterArticle(searchPhrase);
+            //var wikiArticlePage = wikiMainPage.SearchAndEnterArticle(TestContext.DataRow["WikiSearchPrases"].ToString());
 
             Assert.IsTrue(wikiArticlePage.IsLoaded());
 
