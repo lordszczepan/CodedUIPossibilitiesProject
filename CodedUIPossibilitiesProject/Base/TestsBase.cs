@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UITesting;
+﻿using Microsoft.VisualStudio.TestTools.UITest.Extension;
+using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
@@ -26,7 +27,9 @@ namespace CodedUIPossibilitiesProject.Base
         {
             // To generate code for this test, select "Generate Code for Coded UI Test" from the shortcut menu and select one of the menu items.
             driver = BrowserWindow.Launch(new Uri(url));
-            driver.ResizeWindow(480, 800);
+            driver.Maximized = true;
+            driver.ResizeWindow(1920, 1080);
+            Playback.PlaybackSettings.WaitForReadyLevel = WaitForReadyLevel.Disabled;
         }
 
         //Use TestCleanup to run code after each test has run

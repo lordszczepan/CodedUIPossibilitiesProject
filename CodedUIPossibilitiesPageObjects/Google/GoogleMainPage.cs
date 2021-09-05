@@ -21,10 +21,8 @@ namespace CodedUIPossibilitiesPageObjects.Google
             {
                 if (this.mGoogleLogoImage == null)
                 {
-                    this.mGoogleLogoImage = new HtmlImage(browserWindow);
-                    this.mGoogleLogoImage.SearchProperties[HtmlImage.PropertyNames.FriendlyName] = "Google";
-                    this.mGoogleLogoImage.SearchProperties[HtmlImage.PropertyNames.Alt] = "Google";
-                    this.mGoogleLogoImage.SearchProperties[HtmlImage.PropertyNames.TagName] = "IMG";
+                    this.mGoogleLogoImage = new HtmlImage(browserWindow);                   
+                    this.mGoogleLogoImage.SearchProperties[HtmlImage.PropertyNames.Id] = "hplogo";
                     this.mGoogleLogoImage.SearchProperties[HtmlImage.PropertyNames.Class] = "lnXdpd";
                 }
                 return this.mGoogleLogoImage;
@@ -63,10 +61,7 @@ namespace CodedUIPossibilitiesPageObjects.Google
                     this.mGoogleSearchButton.SearchProperties[HtmlButton.PropertyNames.Name] = "btnK";
                     this.mGoogleSearchButton.SearchProperties[HtmlButton.PropertyNames.DisplayText] = "Szukaj w Google";
                     this.mGoogleSearchButton.SearchProperties[HtmlButton.PropertyNames.Type] = "submit";
-                    this.mGoogleSearchButton.FilterProperties[HtmlButton.PropertyNames.Class] = "gNO89b";
-                    this.mGoogleSearchButton.FilterProperties[HtmlButton.PropertyNames.ControlDefinition] = "name=\"btnK\" class=\"gNO89b\" aria-label=\"S";
-                    this.mGoogleSearchButton.FilterProperties[HtmlButton.PropertyNames.TagInstance] = "9";
-                    this.mGoogleSearchButton.WindowTitles.Add("Google - Internet Explorer");
+                    this.mGoogleSearchButton.SearchProperties[HtmlButton.PropertyNames.Class] = "gNO89b";
                     #endregion
                 }
                 return this.mGoogleSearchButton;
