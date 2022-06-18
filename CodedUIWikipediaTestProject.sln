@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31424.327
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodedUIPossibilitiesTests", "CodedUIPossibilitiesProject\CodedUIPossibilitiesTests.csproj", "{E632B859-6315-4D80-A026-B7974BD3AD94}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodedUIWikipediaTests", "CodedUIPossibilitiesProject\CodedUIWikipediaTests.csproj", "{E632B859-6315-4D80-A026-B7974BD3AD94}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodedUIPossibilitiesPageObjects", "CodedUIPossibilitiesPageObjects\CodedUIPossibilitiesPageObjects.csproj", "{A340D720-F4F5-42BD-8FCA-963FD8B9154D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodedUIWikipediaPageObjects", "CodedUIPossibilitiesPageObjects\CodedUIWikipediaPageObjects.csproj", "{A340D720-F4F5-42BD-8FCA-963FD8B9154D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

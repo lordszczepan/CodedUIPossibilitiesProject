@@ -64,8 +64,8 @@ namespace CodedUIPossibilitiesPageObjects.Wikipedia
 
         public WikipediaArticlePage SearchAndEnterArticle(string searchText)
         {
-            TextBoxSearch.SendKeys(searchText + "{Enter}");
-
+            //TextBoxSearch.SendKeys(searchText + "{Enter}");
+            TextBoxSearch.Text = searchText + "{Enter}";
             return new WikipediaArticlePage(browserWindow);
         }
     }

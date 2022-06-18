@@ -26,6 +26,7 @@ namespace CodedUIPossibilitiesProject.Base
         public void MyTestInitialize()
         {
             // To generate code for this test, select "Generate Code for Coded UI Test" from the shortcut menu and select one of the menu items.
+            BrowserWindow.CurrentBrowser = "firefox";
             driver = BrowserWindow.Launch(new Uri(url));
             driver.Maximized = true;
             driver.ResizeWindow(1920, 1080);
