@@ -65,9 +65,9 @@
     <Compile Include="Wikipedia\WikipediaTests.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CodedUIPossibilitiesPageObjects\CodedUIWikipediaPageObjects.csproj">
+    <ProjectReference Include="..\CodedUIPossibilitiesPageObjects\CodedUIPossibilitiesPageObjects.csproj">
       <Project>{a340d720-f4f5-42bd-8fca-963fd8b9154d}</Project>
-      <Name>CodedUIWikipediaPageObjects</Name>
+      <Name>CodedUIPossibilitiesPageObjects</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
