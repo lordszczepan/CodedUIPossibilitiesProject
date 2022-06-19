@@ -23,11 +23,9 @@ namespace CodedUIPossibilitiesPageObjects.Wikipedia
                 if ((this.mNavPanel == null))
                 {
                     this.mNavPanel = new HtmlDiv(browserWindow);
-                    #region Search Criteria
                     this.mNavPanel.SearchProperties[HtmlDiv.PropertyNames.Id] = "mw-head";
                     this.mNavPanel.FilterProperties[HtmlDiv.PropertyNames.ControlDefinition] = "id=\"mw-head\"";
                     this.mNavPanel.FilterProperties[HtmlDiv.PropertyNames.TagInstance] = "24";
-                    #endregion
                 }
                 return this.mNavPanel;
             }
@@ -39,20 +37,32 @@ namespace CodedUIPossibilitiesPageObjects.Wikipedia
                 if ((this.mHtmlControlMainTitle == null))
                 {
                     this.mHtmlControlMainTitle = new HtmlControl(browserWindow);
-                    #region Search Criteria
                     this.mHtmlControlMainTitle.SearchProperties[HtmlControl.PropertyNames.Id] = "firstHeading";
-                    this.mHtmlControlMainTitle.SearchProperties[HtmlControl.PropertyNames.Class] = "firstHeading";
-
-                    #endregion
                 }
                 return this.mHtmlControlMainTitle;
+            }
+        }
+        public HtmlHyperlink UIArtykulHyperlink
+        {
+            get
+            {
+                if ((this.mUIArtykulHyperlink == null))
+                {
+                    this.mUIArtykulHyperlink = new HtmlHyperlink(browserWindow);
+                    this.mUIArtykulHyperlink.SearchProperties[HtmlHyperlink.PropertyNames.InnerText] = "Artykuł";
+                    this.mUIArtykulHyperlink.FilterProperties[HtmlHyperlink.PropertyNames.Title] = "Zobacz stronę treści [alt-c]";
+                    this.mUIArtykulHyperlink.FilterProperties[HtmlHyperlink.PropertyNames.ControlDefinition] = "title=\"Zobacz stronę treści [alt-c]\" acc";
+                    this.mUIArtykulHyperlink.FilterProperties[HtmlHyperlink.PropertyNames.TagInstance] = "1";
+                }
+                return this.mUIArtykulHyperlink;
             }
         }
         #endregion
 
         #region Fields
         private HtmlDiv mNavPanel;
-        private HtmlControl mHtmlControlMainTitle;        
+        private HtmlControl mHtmlControlMainTitle;
+        private HtmlHyperlink mUIArtykulHyperlink;
         #endregion
 
         public override bool IsLoaded()

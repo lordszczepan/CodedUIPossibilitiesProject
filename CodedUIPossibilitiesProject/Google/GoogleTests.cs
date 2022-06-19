@@ -20,13 +20,16 @@ namespace CodedUIPossibilitiesProject.Google
 
         public GoogleTests() : base(url)
         {
-            
         }
 
-        [TestMethod]
+        [TestMethod()]
         public void ShouldSearchForGooglePhraseAndEnterIt()
         {
             var googleMainPage = new GoogleMainPage(driver);
+
+            Assert.IsTrue(googleMainPage.CookiesPopup.IsLoaded());
+
+            googleMainPage.CookiesPopup.ConfirmGoogleCookiesPopup();
 
             Assert.IsTrue(googleMainPage.IsLoaded());
 

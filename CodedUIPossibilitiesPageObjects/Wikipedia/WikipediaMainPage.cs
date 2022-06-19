@@ -28,7 +28,6 @@ namespace CodedUIPossibilitiesPageObjects.Wikipedia
                     this.mDivPageHeader = new HtmlDiv(browserWindow);
                     this.mDivPageHeader.SearchProperties[HtmlDiv.PropertyNames.Id] = "main-page-header";
                     this.mDivPageHeader.SearchProperties[HtmlDiv.PropertyNames.Class] = "header nomobile";
-
                 }
                 return this.mDivPageHeader;
             }
@@ -42,10 +41,8 @@ namespace CodedUIPossibilitiesPageObjects.Wikipedia
                 {
                     this.mTextBoxSearch = new HtmlEdit(browserWindow);
                     this.mTextBoxSearch.SearchProperties[HtmlEdit.PropertyNames.Id] = "searchInput";
-                    //this.mTextBoxSearch.SearchProperties[HtmlEdit.PropertyNames.Id] = "searchInput";
                     this.mTextBoxSearch.SearchProperties[HtmlEdit.PropertyNames.Name] = "search";
                     this.mTextBoxSearch.SearchProperties[HtmlEdit.PropertyNames.Type] = "SINGLELINE";
-
                 }
                 return this.mTextBoxSearch;
             }
@@ -64,8 +61,9 @@ namespace CodedUIPossibilitiesPageObjects.Wikipedia
 
         public WikipediaArticlePage SearchAndEnterArticle(string searchText)
         {
-            //TextBoxSearch.SendKeys(searchText + "{Enter}");
-            TextBoxSearch.Text = searchText + "{Enter}";
+            this.mTextBoxSearch.SendKeys(searchText);
+            this.mTextBoxSearch.SendKeys("{Enter}");
+
             return new WikipediaArticlePage(browserWindow);
         }
     }

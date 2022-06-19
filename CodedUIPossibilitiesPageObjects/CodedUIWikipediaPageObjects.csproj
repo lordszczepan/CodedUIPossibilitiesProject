@@ -55,9 +55,14 @@
   <ItemGroup>
     <Compile Include="Google\GoogleMainPage.cs" />
     <Compile Include="Google\GoogleSearchResultPage.cs" />
+    <Compile Include="Google\Popups\GoogleCookiesPopup.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SharedElements\BrowserExtensions.cs" />
     <Compile Include="SharedElements\SharedActionsAndElements.cs" />
+    <Compile Include="UIMap1.cs" />
+    <Compile Include="UIMap1.Designer.cs">
+      <DependentUpon>UIMap1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Wikipedia\WikipediaArticlePage.cs" />
     <Compile Include="Wikipedia\WikipediaMainPage.cs" />
     <Compile Include="Wikipedia\WikipediaTopBar.cs" />

@@ -1,4 +1,5 @@
-﻿using CodedUIPossibilitiesPageObjects.SharedElements;
+﻿
+using CodedUIPossibilitiesPageObjects.SharedElements;
 using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UITesting.HtmlControls;
 using System;
@@ -12,7 +13,7 @@ namespace CodedUIPossibilitiesPageObjects.Google
     public class GoogleSearchResultPage : SharedActionsAndElements
     {
         public GoogleSearchResultPage(BrowserWindow browserWindow) : base(browserWindow)
-        {
+        {            
         }
 
         #region Properties
@@ -23,8 +24,8 @@ namespace CodedUIPossibilitiesPageObjects.Google
                 if (this.mGoogleSearchResultBar == null)
                 {
                     this.mGoogleSearchResultBar = new HtmlDiv(browserWindow);
-                    this.mGoogleSearchResultBar.SearchProperties[HtmlImage.PropertyNames.Id] = "sfcnt";
-                    this.mGoogleSearchResultBar.SearchProperties[HtmlImage.PropertyNames.Class] = "dodTBe";
+                    this.mGoogleSearchResultBar.SearchProperties[HtmlDiv.PropertyNames.Id] = "sfcnt";
+                    this.mGoogleSearchResultBar.SearchProperties[HtmlDiv.PropertyNames.Class] = "dodTBe";
                 }
                 return this.mGoogleSearchResultBar;
             }
@@ -39,6 +40,5 @@ namespace CodedUIPossibilitiesPageObjects.Google
         {
             return this.GoogleSearchResultBar.Exists;
         }
-
     }
 }

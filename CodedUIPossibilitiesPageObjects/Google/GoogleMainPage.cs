@@ -1,11 +1,9 @@
-﻿using CodedUIPossibilitiesPageObjects.SharedElements;
+﻿using CodedUIPossibilitiesPageObjects.Google.Popups;
+using CodedUIPossibilitiesPageObjects.SharedElements;
 using Microsoft.VisualStudio.TestTools.UITesting;
 using Microsoft.VisualStudio.TestTools.UITesting.HtmlControls;
+using Microsoft.VisualStudio.TestTools.UITesting.WinControls;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CodedUIPossibilitiesPageObjects.Google
 {
@@ -13,7 +11,11 @@ namespace CodedUIPossibilitiesPageObjects.Google
     {
         public GoogleMainPage(BrowserWindow browserWindow) : base(browserWindow)
         {
+            CookiesPopup = new GoogleCookiesPopup(browserWindow);
         }
+
+        public GoogleCookiesPopup CookiesPopup { get; }
+
         #region Properties
         public HtmlImage GoogleLogoImage
         {
@@ -26,27 +28,6 @@ namespace CodedUIPossibilitiesPageObjects.Google
                     this.mGoogleLogoImage.SearchProperties[HtmlImage.PropertyNames.Class] = "lnXdpd";
                 }
                 return this.mGoogleLogoImage;
-            }
-        }
-
-        public HtmlEdit GoogleSearchArea
-        {
-            get
-            {
-                if ((this.mGoogleSearchArea == null))
-                {
-                    this.mGoogleSearchArea = new HtmlEdit(browserWindow);
-                    #region Search Criteria
-                    this.mGoogleSearchArea.SearchProperties[HtmlEdit.PropertyNames.Name] = "q";
-                    this.mGoogleSearchArea.SearchProperties[HtmlEdit.PropertyNames.Type] = "SINGLELINE";
-                    this.mGoogleSearchArea.FilterProperties[HtmlEdit.PropertyNames.Title] = "Szukaj";
-                    this.mGoogleSearchArea.FilterProperties[HtmlEdit.PropertyNames.Class] = "gLFyf gsfi";
-                    this.mGoogleSearchArea.FilterProperties[HtmlEdit.PropertyNames.ControlDefinition] = "name=\"q\" title=\"Szukaj\" class=\"gLFyf gsf";
-                    this.mGoogleSearchArea.FilterProperties[HtmlEdit.PropertyNames.TagInstance] = "6";
-                    this.mGoogleSearchArea.WindowTitles.Add("Google - Internet Explorer");
-                    #endregion
-                }
-                return this.mGoogleSearchArea;
             }
         }
 
@@ -67,29 +48,59 @@ namespace CodedUIPossibilitiesPageObjects.Google
                 return this.mGoogleSearchButton;
             }
         }
+
+        public WinComboBox UISzukajComboBox
+        {
+            get
+            {
+                if ((this.mUISzukajComboBox == null))
+                {
+                    this.mUISzukajComboBox = new WinComboBox(browserWindow);
+                    #region Search Criteria
+                    this.mUISzukajComboBox.SearchProperties[WinComboBox.PropertyNames.Name] = "Szukaj";
+                    this.mUISzukajComboBox.WindowTitles.Add("Google — Osobisty — Microsoft​ Edge");
+                    #endregion
+                }
+                return this.mUISzukajComboBox;
+            }
+        }
+
+        public WinButton UIGoogleOsobistyMicrosButton
+        {
+            get
+            {
+                if ((this.mUIGoogleOsobistyMicrosButton == null))
+                {
+                    this.mUIGoogleOsobistyMicrosButton = new WinButton(browserWindow);
+                    #region Search Criteria
+                    this.mUIGoogleOsobistyMicrosButton.SearchProperties[WinButton.PropertyNames.Name] = "Szukaj w Google";
+                    #endregion
+                }
+                return this.mUIGoogleOsobistyMicrosButton;
+            }
+        }
         #endregion
 
         #region Fields
         private HtmlImage mGoogleLogoImage;
-
-        private HtmlEdit mGoogleSearchArea;
-
         private HtmlInputButton mGoogleSearchButton;
+        private WinComboBox mUISzukajComboBox;
+        private WinButton mUIGoogleOsobistyMicrosButton;
         #endregion
 
 
         #region Methods
         public override bool IsLoaded()
         {
-            return this.GoogleLogoImage.Exists;
+            return GoogleLogoImage.Exists;
         }
 
         public GoogleSearchResultPage SearchGooglePhrase(string phrase)
         {
-
-            this.GoogleSearchArea.SendKeys(phrase);
-            this.GoogleSearchButton.Click();
-
+            UISzukajComboBox.SendKeys(phrase);
+            UISzukajComboBox.SendKeys("{Esc}");
+            UIGoogleOsobistyMicrosButton.Click();
+            
             return new GoogleSearchResultPage(browserWindow);
         }
         #endregion
